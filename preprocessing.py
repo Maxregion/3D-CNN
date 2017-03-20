@@ -145,7 +145,7 @@ def resize_image(patient_pixels,new_shape):
         tmp_slices_images[i]=cv2.resize(patient_pixels[int(i*distance)],shape)
     return  tmp_slices_images
 
-def reshaping(image,shape):
+def re_size(image,shape):
     new_image=np.zeros(shape)
     old_shape=image.shape
     new_shape_stride=[]
@@ -224,7 +224,7 @@ def new_extracted_slice_images():
                 patient_slices=normalize(patient_slices)
                 
                 patient_slices=zero_center(patient_slices)
-                resized_patient_slices=reshaping(patient_slices,shape)
+                resized_patient_slices=re_size(patient_slices,shape)
                 
                 whole_data.append(resized_patient_slices)
                 id,cancer=getting_patient_conditions(i)
